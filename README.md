@@ -18,7 +18,7 @@
 ## 目录结构
 
 ```
-src/main/java/<%= packageName.replace(/\./g, '/') %>/
+src/main/java/<%= packageName %>/                       # 包根目录（由 {{packageName}} 路径变量渲染）
 ├── <%= pascalCase(projectName) %>Application.java   # 启动类
 ├── controller/                                      # 控制器层：REST 端点
 │   ├── HealthController.java                        # /api/health 健康检查
@@ -34,7 +34,7 @@ src/main/java/<%= packageName.replace(/\./g, '/') %>/
     ├── GlobalExceptionHandler.java                  # 全局异常处理
     └── ResourceNotFoundException.java               # 资源不存在异常
 src/main/resources/application.yml                   # 应用配置（端口 <%= port %>）
-src/test/java/<%= packageName.replace(/\./g, '/') %>/controller/  # MockMvc 测试示例
+src/test/java/<%= packageName %>/controller/  # MockMvc 测试示例
 ```
 
 ## 快速开始

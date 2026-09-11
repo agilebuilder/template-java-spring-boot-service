@@ -6,14 +6,14 @@
 
 ## 目录结构与职责
 
-- `src/main/java/<%= packageName.replace(/\./g, '/') %>/`
+- `src/main/java/<%= packageName %>/`
   - `controller/`：REST 控制器，只做参数校验与响应组装，不写业务逻辑
   - `service/`：业务逻辑层，控制器通过 service 访问数据
   - `repository/`：数据访问层，当前 `ItemRepository` 为内存实现（ConcurrentHashMap），接入真实数据库时替换为 Spring Data JPA/MyBatis 实现
   - `model/`：领域模型（POJO）
   - `common/`：`ApiResponse`（统一响应体）、`GlobalExceptionHandler`（全局异常）、业务异常类
 - `src/main/resources/application.yml`：应用配置，服务端口 <%= port %>
-- `src/test/java/<%= packageName.replace(/\./g, '/') %>/`：测试代码，结构镜像 main
+- `src/test/java/<%= packageName %>/`：测试代码，结构镜像 main
 
 ## 编码约定
 
