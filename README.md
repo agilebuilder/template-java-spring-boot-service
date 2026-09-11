@@ -19,7 +19,7 @@
 
 ```
 src/main/java/<%= packageName %>/                       # 包根目录（由 {{packageName}} 路径变量渲染）
-├── <%= pascalCase(projectName) %>Application.java   # 启动类
+├── Application.java                               # 启动类
 ├── controller/                                      # 控制器层：REST 端点
 │   ├── HealthController.java                        # /api/health 健康检查
 │   └── ItemController.java                          # /api/items 示例 CRUD
