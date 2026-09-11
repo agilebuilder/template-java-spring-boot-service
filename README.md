@@ -18,7 +18,7 @@
 ## 目录结构
 
 ```
-src/main/java/<%= packageName %>/                       # 包根目录（由 {{packageName}} 路径变量渲染）
+src/main/java/<%= packageName %>/                       # 包根目录（目录名由 packageName 变量渲染）
 ├── Application.java                               # 启动类
 ├── controller/                                      # 控制器层：REST 端点
 │   ├── HealthController.java                        # /api/health 健康检查
@@ -63,7 +63,7 @@ mvn spring-boot:run
 | javaVersion | list | Java 版本（可选 17 / 21） | 17 |
 | port | number | 服务端口 | 8080 |
 
-模板内容使用 EJS 渲染（分隔符 `%`），例如 `<%%= projectName %>` 会被替换为实际项目名。
+模板内容使用 EJS 渲染（分隔符 `%`），文件中的变量占位符会被替换为实际值。
 
 ## 常用命令
 
