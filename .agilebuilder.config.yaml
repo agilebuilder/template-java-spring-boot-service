@@ -1,0 +1,67 @@
+version: "1.0"
+name: spring-boot-service
+description: Spring Boot 3.3.x + Java 17 + Maven 微服务模板，含分层架构、统一响应体与全局异常处理
+variables:
+  enabled: true
+  delimiter: "%"
+  filePatterns:
+    mode: include
+    patterns:
+      - "pom.xml"
+      - "README.md"
+      - "AGENTS.md"
+      - "src/**/*.java"
+      - "src/main/resources/application.yml"
+  inquirerQuestions:
+    - name: projectName
+      type: input
+      message: 项目名称
+      default: demo-service
+      required: true
+    - name: description
+      type: input
+      message: 项目描述
+      default: 一个 Spring Boot 微服务
+    - name: author
+      type: input
+      message: 作者
+      default: ""
+    - name: packageName
+      type: input
+      message: Java 包名
+      default: com.example.demo
+    - name: javaVersion
+      type: list
+      message: Java 版本
+      choices:
+        - "17"
+        - "21"
+      default: "17"
+    - name: port
+      type: number
+      message: 服务端口
+      default: 8080
+hooks:
+  after_write:
+    scriptType: shell
+    script: git init && git add -A && git commit -m "chore: init project from template"
+    errorHandling: warn
+market:
+  slug: spring-boot-service
+  name: Spring Boot 微服务
+  summary: Spring Boot 3.3.x + Maven 的分层架构微服务模板，内置统一响应体与全局异常处理
+  description: |
+    基于 Spring Boot 3.3.x、Java 17+ 与 Maven 的微服务工程模板。
+
+    - 标准分层架构：controller / service / repository / model / common
+    - 内置统一响应体 ApiResponse 与全局异常处理 GlobalExceptionHandler
+    - 示例健康检查端点与内存版 CRUD 接口，开箱即可运行
+    - 单元测试示例（JUnit 5 + MockMvc）
+    - 支持自定义包名、Java 版本（17/21）与服务端口
+  category: 后端服务
+  tags:
+    - Java
+    - Spring Boot
+    - 微服务
+    - Maven
+  version: 1.0.0

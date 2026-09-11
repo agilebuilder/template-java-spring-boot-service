@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: <%= kebabCase(projectName) %>
+
+server:
+  port: <%= port %>
+
+logging:
+  level:
+    root: info
