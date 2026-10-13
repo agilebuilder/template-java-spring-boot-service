@@ -65,3 +65,19 @@ market:
     - 微服务
     - Maven
   version: 1.0.0
+  gitUrl: https://github.com/agilebuilder/template-java-spring-boot-service.git
+  defaultBranch: main
+  englishMetadata:
+    name: Spring Boot service
+    summary: Spring Boot 3.3.x and Maven service with consistent responses and
+      exception handling.
+    description: A layered Java service starter with Bean Validation, consistent API
+      responses, exception handling and controller tests. The example item
+      repository uses in-memory storage; replace it when persistent storage is
+      required.
+    category: Backend services
+    tags:
+      - Java
+      - Spring Boot
+      - Maven
+      - Microservices
