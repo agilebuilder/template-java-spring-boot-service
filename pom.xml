@@ -56,7 +56,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
-                    <!-- 允许测试 JVM 自 attach，避免 Mockito/ByteBuddy 在部分 JDK 环境下初始化失败 -->
+                    <!-- Allow the test JVM to self-attach, preventing Mockito/ByteBuddy init failures on some JDKs -->
                     <argLine>-Djdk.attach.allowAttachSelf=true</argLine>
                 </configuration>
             </plugin>

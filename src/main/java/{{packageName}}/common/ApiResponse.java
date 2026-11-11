@@ -1,13 +1,13 @@
 package <%= packageName %>.common;
 
 /**
- * 统一 API 响应体。
+ * Unified API response body.
  *
- * @param <T> 业务数据类型
+ * @param <T> payload type
  */
 public class ApiResponse<T> {
 
-    /** 业务状态码，0 表示成功，非 0 表示失败 */
+    /** Business status code: 0 means success, non-zero means failure */
     private int code;
     private String message;
     private T data;

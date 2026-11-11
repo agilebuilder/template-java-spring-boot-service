@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * Item 示例 CRUD 端点。
+ * Example CRUD endpoints for items.
  */
 @RestController
 @RequestMapping("/api/items")

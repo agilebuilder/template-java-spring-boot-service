@@ -2,85 +2,89 @@
 
 <%= description %>
 <% if (author) { %>
-> 作者：<%= author %>
+> Author: <%= author %>
 <% } %>
-## 项目简介
+## Overview
 
-基于 Spring Boot 3.3.x 的微服务工程，采用标准分层架构（controller / service / repository / model / common），内置统一响应体 `ApiResponse` 与全局异常处理 `GlobalExceptionHandler`，并附带健康检查端点与示例 CRUD 接口及单元测试。
+A Spring Boot 3.3.x microservice project with a standard layered architecture (controller / service / repository / model / common). It ships with a unified response body `ApiResponse`, a global exception handler `GlobalExceptionHandler`, a health check endpoint, an example CRUD API and unit tests.
 
-## 技术栈
+## Tech Stack
 
 - Java <%= javaVersion %>
-- Spring Boot 3.3.x（spring-boot-starter-web、spring-boot-starter-validation）
-- Maven 构建
-- JUnit 5 + MockMvc 单元测试
+- Spring Boot 3.3.x (spring-boot-starter-web, spring-boot-starter-validation)
+- Maven build
+- JUnit 5 + MockMvc unit tests
 
-## 目录结构
+## Project Structure
 
 ```
-src/main/java/<%= packageName %>/                       # 包根目录（目录名由 packageName 变量渲染）
-├── Application.java                               # 启动类
-├── controller/                                      # 控制器层：REST 端点
-│   ├── HealthController.java                        # /api/health 健康检查
-│   └── ItemController.java                          # /api/items 示例 CRUD
-├── service/                                         # 业务逻辑层
+src/main/java/<%= packageName %>/                       # Package root (directory rendered from packageName)
+├── Application.java                               # Bootstrap class
+├── controller/                                      # Controller layer: REST endpoints
+│   ├── HealthController.java                        # /api/health health check
+│   └── ItemController.java                          # /api/items example CRUD
+├── service/                                         # Business logic layer
 │   └── ItemService.java
-├── repository/                                      # 数据访问层（示例为内存实现）
+├── repository/                                      # Data access layer (in-memory example)
 │   └── ItemRepository.java
-├── model/                                           # 领域模型
+├── model/                                           # Domain models
 │   └── Item.java
-└── common/                                          # 通用组件
-    ├── ApiResponse.java                             # 统一响应体
-    ├── GlobalExceptionHandler.java                  # 全局异常处理
-    └── ResourceNotFoundException.java               # 资源不存在异常
-src/main/resources/application.yml                   # 应用配置（端口 <%= port %>）
-src/test/java/<%= packageName %>/controller/  # MockMvc 测试示例
+└── common/                                          # Shared components
+    ├── ApiResponse.java                             # Unified response body
+    ├── GlobalExceptionHandler.java                  # Global exception handling
+    └── ResourceNotFoundException.java               # Resource-not-found exception
+src/main/resources/application.yml                   # App config (port <%= port %>)
+src/test/java/<%= packageName %>/controller/  # MockMvc test examples
 ```
 
-## 快速开始
+## Quick Start
 
-本项目由 AgileBuilder 模板生成。重新生成同类项目：
+This project was generated from an AgileBuilder template. To regenerate a similar project:
 
 ```bash
-ag create --git-url <模板仓库地址> --target <目标目录>
+ag create --git-url <template-repo-url> --target <directory>
 ```
 
-本地运行：
+Run locally:
 
 ```bash
 mvn spring-boot:run
-# 访问 http://localhost:<%= port %>/api/health
+# visit http://localhost:<%= port %>/api/health
 ```
 
-## 模板变量
+## Template Variables
 
-| 变量名 | 类型 | 说明 | 默认值 |
+| Variable | Type | Description | Default |
 | ------ | ---- | ---- | ------ |
-| projectName | input | 项目名称（必填，artifactId 取其 kebab-case 形式） | demo-service |
-| description | input | 项目描述 | 一个 Spring Boot 微服务 |
-| author | input | 作者 | （空） |
-| packageName | input | Java 包名 | com.example.demo |
-| javaVersion | list | Java 版本（可选 17 / 21） | 17 |
-| port | number | 服务端口 | 8080 |
+| projectName | input | Project name (required; artifactId takes its kebab-case form) | demo-service |
+| description | input | Project description | A Spring Boot microservice |
+| author | input | Author | (empty) |
+| packageName | input | Java package name | com.example.demo |
+| javaVersion | list | Java version (17 / 21) | 17 |
+| port | number | Server port | 8080 |
 
-模板内容使用 EJS 渲染（分隔符 `%`），文件中的变量占位符会被替换为实际值。
+Template content is rendered with EJS (delimiter `%`); variable placeholders in files are replaced with actual values.
 
-## 常用命令
+## Common Commands
 
 ```bash
-mvn compile                # 编译
-mvn test                   # 运行单元测试
-mvn package                # 打包可执行 jar（target/ 下）
-mvn spring-boot:run        # 本地启动
+mvn compile                # compile
+mvn test                   # run unit tests
+mvn package                # build an executable jar (under target/)
+mvn spring-boot:run        # run locally
 ```
 
-## API 示例
+## API Examples
 
-- `GET /api/health`：健康检查
-- `GET /api/items`：查询全部 Item
-- `GET /api/items/{id}`：按 ID 查询
-- `POST /api/items`：新建 Item（JSON body：`{"name": "示例"}`）
-- `PUT /api/items/{id}`：更新 Item
-- `DELETE /api/items/{id}`：删除 Item
+- `GET /api/health`: health check
+- `GET /api/items`: list all items
+- `GET /api/items/{id}`: get by ID
+- `POST /api/items`: create an item (JSON body: `{"name": "sample"}`)
+- `PUT /api/items/{id}`: update an item
+- `DELETE /api/items/{id}`: delete an item
 
-所有接口返回统一结构：`{"code": 0, "message": "success", "data": ...}`。
+All endpoints return the unified structure: `{"code": 0, "message": "success", "data": ...}`.
+
+## License
+
+MIT

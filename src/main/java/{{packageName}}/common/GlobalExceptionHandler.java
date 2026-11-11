@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.stream.Collectors;
 
 /**
- * 全局异常处理：统一把异常转换为 ApiResponse 结构与合适的 HTTP 状态码。
+ * Global exception handling: converts exceptions uniformly into ApiResponse
+ * payloads with appropriate HTTP status codes.
  */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -33,7 +34,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiResponse<Void>> handleUnexpected(Exception ex) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(ApiResponse.error(500, "服务器内部错误"));
+                .body(ApiResponse.error(500, "Internal server error"));
     }
 
     private String formatFieldError(FieldError error) {

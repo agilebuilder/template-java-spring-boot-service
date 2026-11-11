@@ -5,13 +5,13 @@ import jakarta.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
 /**
- * 示例领域模型。
+ * Example domain model.
  */
 public class Item {
 
     private Long id;
 
-    @NotBlank(message = "不能为空")
+    @NotBlank(message = "must not be blank")
     private String name;
 
     private LocalDateTime createdAt;

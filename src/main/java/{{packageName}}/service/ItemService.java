@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Item 业务逻辑层。
+ * Business logic layer for items.
  */
 @Service
 public class ItemService {
@@ -25,7 +25,7 @@ public class ItemService {
 
     public Item get(Long id) {
         return itemRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Item " + id + " 不存在"));
+                .orElseThrow(() -> new ResourceNotFoundException("Item " + id + " not found"));
     }
 
     public Item create(Item item) {
@@ -41,7 +41,7 @@ public class ItemService {
 
     public void delete(Long id) {
         if (!itemRepository.deleteById(id)) {
-            throw new ResourceNotFoundException("Item " + id + " 不存在");
+            throw new ResourceNotFoundException("Item " + id + " not found");
         }
     }
 }

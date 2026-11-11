@@ -1,7 +1,8 @@
 package <%= packageName %>.common;
 
 /**
- * 资源不存在异常，由全局异常处理器统一转为 404 响应。
+ * Exception thrown when a resource does not exist; converted to a 404
+ * response by the global exception handler.
  */
 public class ResourceNotFoundException extends RuntimeException {
 

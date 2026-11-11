@@ -12,7 +12,8 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * 示例数据访问层：内存实现。接入真实数据库时可替换为 Spring Data JPA / MyBatis 实现。
+ * Example data access layer with an in-memory implementation. Replace with a
+ * Spring Data JPA / MyBatis implementation when connecting a real database.
  */
 @Repository
 public class ItemRepository {

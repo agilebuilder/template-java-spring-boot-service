@@ -1,40 +1,40 @@
-# AGENTS.md — AI 编码代理导航指南
+# AGENTS.md — Navigation Guide for AI Coding Agents
 
-## 项目概览
+## Project Overview
 
-`<%= projectName %>`：<%= description %>。Spring Boot 3.3.x + Java <%= javaVersion %> + Maven 的分层架构微服务。
+`<%= projectName %>`: <%= description %>. A layered-architecture microservice on Spring Boot 3.3.x + Java <%= javaVersion %> + Maven.
 
-## 目录结构与职责
+## Directory Structure and Responsibilities
 
 - `src/main/java/<%= packageName %>/`
-  - `controller/`：REST 控制器，只做参数校验与响应组装，不写业务逻辑
-  - `service/`：业务逻辑层，控制器通过 service 访问数据
-  - `repository/`：数据访问层，当前 `ItemRepository` 为内存实现（ConcurrentHashMap），接入真实数据库时替换为 Spring Data JPA/MyBatis 实现
-  - `model/`：领域模型（POJO）
-  - `common/`：`ApiResponse`（统一响应体）、`GlobalExceptionHandler`（全局异常）、业务异常类
-- `src/main/resources/application.yml`：应用配置，服务端口 <%= port %>
-- `src/test/java/<%= packageName %>/`：测试代码，结构镜像 main
+  - `controller/`: REST controllers — parameter validation and response assembly only; no business logic
+  - `service/`: business logic layer; controllers access data through services
+  - `repository/`: data access layer; `ItemRepository` is currently an in-memory implementation (ConcurrentHashMap) — replace it with Spring Data JPA/MyBatis when connecting a real database
+  - `model/`: domain models (POJOs)
+  - `common/`: `ApiResponse` (unified response body), `GlobalExceptionHandler` (global exceptions), business exception classes
+- `src/main/resources/application.yml`: application config; server port <%= port %>
+- `src/test/java/<%= packageName %>/`: tests mirroring the main structure
 
-## 编码约定
+## Coding Conventions
 
-- 所有 REST 接口返回 `ApiResponse<T>`，通过 `ApiResponse.success(data)` / `ApiResponse.error(...)` 构造，不要直接返回裸对象
-- 资源不存在时抛出 `ResourceNotFoundException`，由 `GlobalExceptionHandler` 统一转为 404 响应，不要在 controller 里 try-catch
-- 参数校验使用 Bean Validation 注解（`@NotBlank` 等）+ `@Valid`，校验失败由全局异常处理器返回 400
-- 包根为 `<%= packageName %>`，新代码必须放在该包或其子包下，否则组件扫描不到
-- 新增端点遵循 `/api/<资源名>` 前缀约定
-- 缩进 4 空格，文件 UTF-8、LF 行尾（见 `.editorconfig`）
+- All REST endpoints return `ApiResponse<T>`, built via `ApiResponse.success(data)` / `ApiResponse.error(...)`; never return raw objects
+- Throw `ResourceNotFoundException` for missing resources; `GlobalExceptionHandler` turns it into a 404 response uniformly — no try-catch in controllers
+- Validate parameters with Bean Validation annotations (`@NotBlank`, etc.) + `@Valid`; validation failures are returned as 400 by the global exception handler
+- The package root is `<%= packageName %>`; new code must live in this package or its subpackages, or component scanning will miss it
+- New endpoints follow the `/api/<resource>` prefix convention
+- 4-space indentation, UTF-8 files, LF line endings (see `.editorconfig`)
 
-## 常用命令
+## Common Commands
 
 ```bash
-mvn compile          # 编译
-mvn test             # 运行全部单元测试
-mvn package          # 打包可执行 jar
-mvn spring-boot:run  # 本地启动（端口 <%= port %>）
+mvn compile          # compile
+mvn test             # run all unit tests
+mvn package          # build executable jar
+mvn spring-boot:run  # run locally (port <%= port %>)
 ```
 
-## 变更检查清单
+## Change Checklist
 
-- 修改公共响应结构（`ApiResponse`）时，同步更新 README 的 API 说明
-- 新增 controller 时补充对应 MockMvc 测试（参考 `ItemControllerTest`）
-- 修改 `application.yml` 配置项时，检查测试是否依赖默认值
+- When modifying the common response structure (`ApiResponse`), update the API section of the README accordingly
+- When adding a controller, add the corresponding MockMvc tests (see `ItemControllerTest`)
+- When changing `application.yml` settings, check whether tests rely on the defaults

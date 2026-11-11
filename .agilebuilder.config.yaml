@@ -1,6 +1,6 @@
 version: "1.0"
 name: spring-boot-service
-description: Spring Boot 3.3.x + Java 17 + Maven 微服务模板，含分层架构、统一响应体与全局异常处理
+description: Spring Boot 3.3.x + Java 17 + Maven microservice template with layered architecture, unified response body and global exception handling
 variables:
   enabled: true
   delimiter: "%"
@@ -9,37 +9,38 @@ variables:
     patterns:
       - "pom.xml"
       - "README.md"
+      - "README.zh-CN.md"
       - "AGENTS.md"
       - "src/**/*.java"
       - "src/main/resources/application.yml"
   inquirerQuestions:
     - name: projectName
       type: input
-      message: 项目名称
+      message: Project name
       default: demo-service
       required: true
     - name: description
       type: input
-      message: 项目描述
-      default: 一个 Spring Boot 微服务
+      message: Project description
+      default: A Spring Boot microservice
     - name: author
       type: input
-      message: 作者
+      message: Author
       default: ""
     - name: packageName
       type: input
-      message: Java 包名
+      message: Java package name
       default: com.example.demo
     - name: javaVersion
       type: list
-      message: Java 版本
+      message: Java version
       choices:
         - "17"
         - "21"
       default: "17"
     - name: port
       type: number
-      message: 服务端口
+      message: Server port
       default: 8080
 hooks:
   after_write:

@@ -10,7 +10,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * 健康检查端点。
+ * Health check endpoint.
  */
 @RestController
 @RequestMapping("/api/health")

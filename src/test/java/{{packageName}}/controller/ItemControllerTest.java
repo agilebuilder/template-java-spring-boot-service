@@ -24,11 +24,11 @@ class ItemControllerTest {
     void createItemReturnsCreated() throws Exception {
         mockMvc.perform(post("/api/items")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content("{\"name\": \"示例\"}"))
+                        .content("{\"name\": \"sample\"}"))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.code").value(0))
                 .andExpect(jsonPath("$.data.id").isNumber())
-                .andExpect(jsonPath("$.data.name").value("示例"));
+                .andExpect(jsonPath("$.data.name").value("sample"));
     }
 
     @Test
