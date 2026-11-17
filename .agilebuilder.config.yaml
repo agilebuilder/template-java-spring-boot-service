@@ -49,36 +49,39 @@ hooks:
     errorHandling: warn
 market:
   slug: spring-boot-service
-  name: Spring Boot 微服务
-  summary: Spring Boot 3.3.x + Maven 的分层架构微服务模板，内置统一响应体与全局异常处理
+  name: Spring Boot service
+  summary: Spring Boot 3.3.x and Maven service with consistent responses and exception handling.
   description: |
-    基于 Spring Boot 3.3.x、Java 17+ 与 Maven 的微服务工程模板。
+    A microservice project template based on Spring Boot 3.3.x, Java 17+ and Maven.
 
-    - 标准分层架构：controller / service / repository / model / common
-    - 内置统一响应体 ApiResponse 与全局异常处理 GlobalExceptionHandler
-    - 示例健康检查端点与内存版 CRUD 接口，开箱即可运行
-    - 单元测试示例（JUnit 5 + MockMvc）
-    - 支持自定义包名、Java 版本（17/21）与服务端口
-  category: 后端服务
+    - Standard layered architecture: controller / service / repository / model / common
+    - Unified response body (ApiResponse) and global exception handling (GlobalExceptionHandler)
+    - Example health check endpoint and in-memory CRUD API, runnable out of the box
+    - Unit test examples (JUnit 5 + MockMvc)
+    - Configurable package name, Java version (17/21) and server port
+  category: Backend services
   tags:
     - Java
     - Spring Boot
-    - 微服务
     - Maven
+    - Microservices
   version: 1.0.0
   gitUrl: https://github.com/agilebuilder/template-java-spring-boot-service.git
   defaultBranch: main
-  englishMetadata:
-    name: Spring Boot service
-    summary: Spring Boot 3.3.x and Maven service with consistent responses and
-      exception handling.
-    description: A layered Java service starter with Bean Validation, consistent API
-      responses, exception handling and controller tests. The example item
-      repository uses in-memory storage; replace it when persistent storage is
-      required.
-    category: Backend services
+  metadata-zh:
+    name: Spring Boot 微服务
+    summary: Spring Boot 3.3.x + Maven 的分层架构微服务模板，内置统一响应体与全局异常处理
+    description: |
+      基于 Spring Boot 3.3.x、Java 17+ 与 Maven 的微服务工程模板。
+
+      - 标准分层架构：controller / service / repository / model / common
+      - 内置统一响应体 ApiResponse 与全局异常处理 GlobalExceptionHandler
+      - 示例健康检查端点与内存版 CRUD 接口，开箱即可运行
+      - 单元测试示例（JUnit 5 + MockMvc）
+      - 支持自定义包名、Java 版本（17/21）与服务端口
+    category: 后端服务
     tags:
       - Java
       - Spring Boot
+      - 微服务
       - Maven
-      - Microservices
